@@ -1,3 +1,7 @@
+/*array with all channels*/
+
+/*var channels = [yummy, sevencontinents, killerapp,  firstpersononmars, octoberfest];*/
+
 /** #7 #chlob #new: the new yummy channel */
 
 var yummy = {
