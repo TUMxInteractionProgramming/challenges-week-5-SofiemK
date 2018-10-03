@@ -105,13 +105,18 @@ function sendMessage() {
     // #8 Create a new message to send and log it.
     //var message = new Message("Hello chatter");
     
+    var messageCount = 0;
     // #8 let's now use the real message #input
     var message = new Message($('#message').val());
-  
+    
 
-    if (message.length > 0) {
+    if (message.text.length > 0) {
         console.log("New message:", message);
 
+        //Push new message to current channel
+        currentChannel.messages.push(message);
+        
+        currentChannel.messageCount= currentChannel.messageCount+1;
         // #8 convenient message append with jQuery:
         $('#messages').append(createMessageElement(message));
 
