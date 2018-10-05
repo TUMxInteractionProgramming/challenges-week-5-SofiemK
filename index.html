@@ -31,7 +31,7 @@
 <body onload="listChannels(New)">
 
 <!--emoji list recieved from Kiko Beats-->
-<script src="js/emojis-list.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/emojis-list.js" ></script>
 
 <!-- channel area -->
 <div class="md-whiteframe-4dp" id="channels">
@@ -96,7 +96,7 @@
     </ul>
 
       <!--Flaoting action button-->
-      <span class="dot" class="md-whiteframe-4dp" onclick="createNewChannel(currentChannel) "><i class="fas fa-plus"></i></span>
+      <span id="dot" class="md-whiteframe-4dp" onclick="inputNewChannel(currentChannel)"><i class="fas fa-plus"></i></span>
     
 
     <!-- TAB BAR -->

@@ -150,7 +150,7 @@ li.selected {
 }
 /*action button style*/
 
-.dot{
+#dot{
     position: absolute;
     right: 16px;
     bottom: 104px;

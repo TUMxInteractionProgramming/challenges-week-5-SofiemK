@@ -158,14 +158,67 @@ function createMessageElement(messageObject) {
 }
 
 //empty messages
-function createNewChannel(currentChannel){
+function inputNewChannel(currentChannel){
+
+    //empties message fiels
     $("#messages").empty();
 
+    //input for new channel name
     document.getElementById("right-app-bar").innerHTML = '<input type="text" placeholder="Enter a #ChannelName" maxlength="400" id="newChannelName"></input>'+
         '<button id="abort" class="primary" onclick="restore(currentChannel)">x ABORT</button>';
 
+    //create button
     document.getElementById("sendbutton").innerHTML = 'CREATE';
+
+    $("#sendbutton").attr("onclick","createChannel()");
+
     
+    
+}
+
+function createChannel (){
+
+    var message = new Message($('#message').val());
+
+    var channel = new Channel($('#newChannelName').val(), message);
+    
+
+    /*checks if both a valid message (not empty) and valid channel name (not empty, starting with #, no spaces) has been provided. */
+    if (message.text.length > 0 && channel.name.length > 0 && channel.name.charAt(0) == '#' && channel.name.indexOf(' ') < 0) { 
+        console.log("New Channel:", channel);
+
+        //Push new message to current channel
+        channels.push(channel);
+
+        // #8 clear the message input
+        $('#newChannelName').val('');
+
+        //create new channel list
+        listChannels(New);
+
+        //send the written message
+        sendMessage();
+
+        //switch back to start screen
+        switchChannel(channel);
+
+    }
+}
+// )
+
+/**
+ * #8 This #constructor function creates a new chat #message.
+ 
+ * @constructor
+ */
+function Channel(channelName, message) {
+    this.name = channelName;
+    this.createdOn = new Date(); //now
+    this.createdBy = currentLocation.what3words;
+    this.starred = false;
+    this.expiresIn = 1000;
+    this.messageCount = 1;
+    this.messages = [message];
 }
 
 //restore AppBar
@@ -175,6 +228,7 @@ function restore(currentChannel){
         '<i class="fas fa-star" onclick="star()"></i>';
 
     document.getElementById("sendbutton").innerHTML = '<i class="fas fa-arrow-right"></i>';
+    $("#sendbutton").attr("onclick","sendMessage()");
 
     switchChannel(currentChannel);
     
