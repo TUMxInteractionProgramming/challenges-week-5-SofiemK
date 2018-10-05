@@ -96,7 +96,7 @@
     </ul>
 
       <!--Flaoting action button-->
-      <span class="dot" class="md-whiteframe-4dp"><i class="fas fa-plus"></i></span>
+      <span class="dot" class="md-whiteframe-4dp" onclick="createNewChannel(currentChannel) "><i class="fas fa-plus"></i></span>
     
 
     <!-- TAB BAR -->
@@ -122,7 +122,7 @@
 <div id="chat">
 
     <!-- APP BAR for CHANNEL TITLE -->
-    <h1 class="md-whiteframe-4dp">
+    <h1 id="right-app-bar" class="md-whiteframe-4dp">
         <span id="channel-name">#SevenContinents</span>
         <small id="channel-location">by <strong>cheeses.yard.applies</strong></small>
         <!-- #7 star is now font-awesome -->
@@ -191,7 +191,7 @@
                It also gets an id -->
         <input type="text" placeholder="Message..." maxlength="140" id="message">
         <!-- #8 send message requires a button -->
-        <button class="accent" onclick="sendMessage()"><i class="fas fa-arrow-right"></i></button>
+        <button class="accent" id="sendbutton" onclick="sendMessage()"><i class="fas fa-arrow-right"></i></button>
     </div>
 </div>
 

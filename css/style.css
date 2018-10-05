@@ -336,6 +336,25 @@ button {
     color: black;
 }
 
+#newChannelName{
+    position: absolute;
+    background-color: white;
+    width: 70%;
+    font-size: 20px; 
+
+}
+
+h1 #abort{
+    position:absolute;
+    right: 16px;
+    bottom: 0px;
+}
+
+h1 #abort i{
+    position:absolute;
+    left: 0px;
+}
+
 /*shadow style
 credits to Roa https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-material-design-elevations#*/
 .md-whiteframe-2dp {

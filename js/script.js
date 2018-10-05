@@ -157,6 +157,28 @@ function createMessageElement(messageObject) {
         '</div>';
 }
 
+//empty messages
+function createNewChannel(currentChannel){
+    $("#messages").empty();
+
+    document.getElementById("right-app-bar").innerHTML = '<input type="text" placeholder="Enter a #ChannelName" maxlength="400" id="newChannelName"></input>'+
+        '<button id="abort" class="primary" onclick="restore(currentChannel)">x ABORT</button>';
+
+    document.getElementById("sendbutton").innerHTML = 'CREATE';
+    
+}
+
+//restore AppBar
+function restore(currentChannel){
+    document.getElementById("right-app-bar").innerHTML = '<span id="channel-name">#SevenContinents</span>'+
+        '<small id="channel-location">by <strong>cheeses.yard.applies</strong></small>'+
+        '<i class="fas fa-star" onclick="star()"></i>';
+
+    document.getElementById("sendbutton").innerHTML = '<i class="fas fa-arrow-right"></i>';
+
+    switchChannel(currentChannel);
+    
+}
 
 function listChannels(criterion) {
     // #8 channel onload
