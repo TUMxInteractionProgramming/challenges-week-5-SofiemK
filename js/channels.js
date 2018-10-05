@@ -1,6 +1,4 @@
-/*array with all channels*/
 
-/*var channels = [yummy, sevencontinents, killerapp,  firstpersononmars, octoberfest];*/
 
 /** #7 #chlob #new: the new yummy channel */
 
@@ -60,3 +58,7 @@ var octoberfest = {
     messages: [],
     messageCount: 0
 };
+
+/*array with all channels*/
+
+var channels = [yummy, sevencontinents, killerapp,  firstpersononmars, octoberfest];

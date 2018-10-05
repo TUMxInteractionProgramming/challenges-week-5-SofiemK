@@ -79,6 +79,7 @@ function selectTab(tabId) {
  * toggle (show/hide) the emojis menu
  */
 function toggleEmojis() {
+    var emojis = require('emojis-list');
     $('#emojis').toggle(); // #toggle
 }
 
@@ -157,23 +158,28 @@ function createMessageElement(messageObject) {
 }
 
 
-function listChannels() {
+function listChannels(criterion) {
     // #8 channel onload
     //$('#channels ul').append("<li>New Channel</li>")
 
     // #8 five new channels
-    $('#channels ul').append(createChannelElement(yummy));
+    /*$('#channels ul').append(createChannelElement(yummy));
     $('#channels ul').append(createChannelElement(sevencontinents));
     $('#channels ul').append(createChannelElement(killerapp));
     $('#channels ul').append(createChannelElement(firstpersononmars));
-    $('#channels ul').append(createChannelElement(octoberfest));
+    $('#channels ul').append(createChannelElement(octoberfest));*/
     
+    //empty channel list
+    $('#channels ul').empty();
+    //sort channel list
+    channels.sort(criterion);
+
     /*apend channels with for loop*/
-    /*var i;
+    var i;
 
     for(i=0; i<channels.length; i++){
         $('#channels ul').append(createChannelElement(channels[i]));  
-    }*/
+    }
 }
 
 /**
@@ -212,3 +218,34 @@ function createChannelElement(channelObject) {
     // return the complete channel
     return channel;
 }
+
+//compare Functions
+
+//NEW: new above old
+function New(channelOne, channelTwo) {
+    if (channelOne.createdOn > channelTwo.createdOn) {
+        return -1; //Channel one was created later and should be sorted first
+    } else {
+        return 1; //Channel two was created later (or equal) and should be sorted first
+    }
+ }
+
+ //Trending: compare messageCount
+ function Trending(channelOne, channelTwo) {
+    if (channelOne.messageCount > channelTwo.messageCount) {
+        return -1; //Channel one has bigger messageCount and should be sorted first
+    } else {
+        return 1; //Channel two has bigger messageCount is smaller and should be sorted first
+    }
+ }
+
+ //Favorite: Compare starred
+ function Favorite(channelOne, channelTwo) {
+    if (channelOne.starred == true && channelTwo.starred == false) {
+        return -1; //Channel one is starred and should be sorted first
+    } else {
+        return 1; //Channel two is smaller (or equal) and should be sorted first
+    }
+ }
+
+ 

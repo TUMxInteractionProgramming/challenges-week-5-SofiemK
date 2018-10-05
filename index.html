@@ -28,7 +28,10 @@
 </head>
 
 <!-- #8 #channel #onload all channels when the body has loaded -->
-<body onload="listChannels()">
+<body onload="listChannels(New)">
+
+<!--emoji list recieved from Kiko Beats-->
+<script src="js/emojis-list.js" type="text/javascript" charset="utf-8"></script>
 
 <!-- channel area -->
 <div class="md-whiteframe-4dp" id="channels">
@@ -98,17 +101,17 @@
 
     <!-- TAB BAR -->
     <div class="md-whiteframe-4dp" id="tab-bar">
-        <button class="selected" id="tab-new" onclick="selectTab('#tab-new')">
+        <button class="selected" id="tab-new" onclick="selectTab('#tab-new'); listChannels(New)">
             <!-- #7  replacing icons -->
             <i class="far fa-lightbulb"></i>
             New
         </button>
-        <button id="tab-trending" onclick="selectTab('#tab-trending')">
+        <button id="tab-trending" onclick="selectTab('#tab-trending'); listChannels(Trending)">
             <!-- #7  replacing icons -->
             <i class="fas fa-fire"></i>
             Trending
         </button>
-        <button id="tab-favorites" onclick="selectTab('#tab-favorites')">
+        <button id="tab-favorites" onclick="selectTab('#tab-favorites'); listChannels(Favorite)">
             <!-- #7  replacing icons -->
             <i class="fas fa-star"></i>
             Favorites
@@ -127,8 +130,7 @@
     </h1>
 
     <div id="messages">
-
-        <!--
+            <!--
             <div class="message own">
             <h3><a href="http://w3w.co/cheeses.yard.applies" target="_blank"><strong>cheeses.yard.applies</strong></a>
                 Wed, June 20th, 13:37 <em>15 min. left</em></h3>
